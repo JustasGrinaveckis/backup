@@ -12,7 +12,7 @@ datasets=$(bq ls -max_results=1000 | awk '{print $1}' | tail +3 | grep -iv "sys\
 
 for dataset in $datasets;  do
 #All this for firebase tables as some of them doesn't have same schema
-if [[ "$dataset" == *"joggo_firebase_transfer"* ]]; then
+if [[ "$dataset" == *"firebase_transfer"* ]]; then
     arr=(${dataset//_/ })
     table_name=${arr[0]}
     echo "select * from \`${dataset}.events_intraday_*\`" > events_intraday.txt
