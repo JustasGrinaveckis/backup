@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SLACK_WEBHOOK_URL=https://hooks.slack.com/services/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
+SLACK_WEBHOOK_URL=$(cat webhook.txt)
 curr_date="`date +%Y_%m_%d`";
 echo "Current date: $curr_date";
 backup_ds=backup_$curr_date;
