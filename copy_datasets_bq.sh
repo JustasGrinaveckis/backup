@@ -16,7 +16,7 @@ function error_handling () {
 bq --location=US mk -d --description "Backup dataset for $curr_date" $backup_ds
 
 #filter not needed datasets (no pattern, so hardcoding datasets)
-datasets=$(bq ls -max_results=1000 | awk '{print $1}' | tail +3 | grep -iv "sys\|production\|fivetran\|looker_scratch\|kilolt\|temp\|unused_tables\|backup");
+datasets=$(bq ls -max_results=1000 | awk '{print $1}' | tail +3 | grep -iv "sys\|production\|fivetran\|looker_scratch\|kilolt\|temp\|unused_tables\|backup\|audits");
 
 for dataset in $datasets;  do
 #All this for firebase tables as some of them doesn't have same schema
